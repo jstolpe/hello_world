@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+@font-face {
+	font-family: 'SpaceGrotesk-Regular';
+	src: url( '../../../fonts/space_grotesk/SpaceGrotesk-Regular.ttf' );
+}
+
+@font-face {
+	font-family: 'SpaceGrotesk-Bold';
+	src: url( '../../../fonts/space_grotesk/SpaceGrotesk-Bold.ttf' );
+}
+
+@font-face {
+	font-family: 'SpaceGrotesk-Light';
+	src: url( '../../../fonts/space_grotesk/SpaceGrotesk-Light.ttf' );
+}
+
+@font-face {
+	font-family: 'SpaceGrotesk-Medium';
+	src: url( '../../../fonts/space_grotesk/SpaceGrotesk-Medium.ttf' );
+}
+
+@font-face {
+	font-family: 'SpaceGrotesk-SemiBold';
+	src: url( '../../../fonts/space_grotesk/SpaceGrotesk-SemiBold.ttf' );
+}
+
+body {
+	background: url( '../../../images/stars.png' ) no-repeat center center fixed;
+	background-size: cover;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	color: #dad8de;
+  	font-family: 'SpaceGrotesk-Regular';
+}
+
+h1 {
+	margin: 0px;
+	font-size: 28px;
+	font-family: 'SpaceGrotesk-Bold';
+}
+
+.section-container {
+	background: rgba( 18, 18, 18, 0.8 );
+	max-width: 400px;
+	border-radius: 5px;
+	padding: 15px;
+	margin: 0 auto;
+	box-shadow: 0 0px 1px rgba( 255, 255, 255, .3 ), 0 0px 10px rgba( 255, 255, 255, .3 );
+}
+
+.default-button {
+	font-size: 16px;
+	padding: 12px;
+	text-align: center;
+	border-radius: 5px;
+	color: #ffffff;
+	user-select: none;
+	font-family: 'SpaceGrotesk-Bold';
+}
+
+.default-button:active {
+	box-shadow: inset 0 0 20px #ffffff;
+}
+
+.default-button.space-blue {
+	background: #3a2e4f;
+}
+
+.default-button.space-blue:hover {
+	background: #495373;
+	cursor: pointer;
+}
+
+@media only screen and ( max-width: 1200px ) {
+	h1 {
+		font-size: 24px;
+	}
+}

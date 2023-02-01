@@ -1,0 +1,34 @@
+@charset "utf-8";
+
+.main-container {
+	width: 400px;
+	margin: 0 auto;
+}
+
+.main-image-container {
+	margin-bottom: 20px;
+}
+
+#night {
+	width: 400px;
+	display: inline-block;
+}
+
+.day {
+	display: none;
+	width: 400px;
+}
+
+@media only screen and ( max-width: 1200px ) {
+	.main-container {
+		width: 100%;
+	}
+
+	#night {
+		width: 100%;
+	}
+
+	.day {
+		width: 100%;
+	}
+}
