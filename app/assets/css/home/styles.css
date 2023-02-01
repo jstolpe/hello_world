@@ -19,6 +19,10 @@
 	width: 400px;
 }
 
+#hello_world {
+	margin-top: 10px;
+}
+
 @media only screen and ( max-width: 1200px ) {
 	.main-container {
 		width: 100%;
