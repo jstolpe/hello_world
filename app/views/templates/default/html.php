@@ -35,9 +35,14 @@
 		<!-- favicon -->
 		<link rel="shortcut icon" href="<?php echo BASE_URL_ASSETS; ?>images/favicon.ico" />
 
+		<!-- font awesome -->
+		<link rel="stylesheet" href="<?php echo BASE_URL_ASSETS; ?>css/fontawesome/css/fontawesome.css" />
+		<link rel="stylesheet" href="<?php echo BASE_URL_ASSETS; ?>css/fontawesome/css/regular.css" />
+		<link rel="stylesheet" href="<?php echo BASE_URL_ASSETS; ?>css/fontawesome/css/solid.css" />
+
 		<!-- template specific css -->
 		<link href="<?php echo BASE_URL_ASSETS; ?>css/templates/default/styles.css" rel="stylesheet" type="text/css" />
-
+		
 		<!-- template specific js -->
 		<script src="<?php echo BASE_URL_ASSETS; ?>js/templates/default/script.js"></script>
 

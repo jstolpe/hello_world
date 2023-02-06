@@ -23,6 +23,10 @@
 	margin-top: 10px;
 }
 
+.body-type {
+	float: right;
+}
+
 @media only screen and ( max-width: 1200px ) { /* mobile: do things when size is 1200px or less */
 	.main-container {
 		width: 100%;

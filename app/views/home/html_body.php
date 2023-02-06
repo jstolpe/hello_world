@@ -6,6 +6,9 @@
 	<div class="section-container">
 		<h1>
 			Earth
+			<i class="fa-solid fa-earth-americas body-type">
+				
+			</i>
 		</h1>
 		<div id="hello_world" class="default-button space-blue">
 			Hello World
