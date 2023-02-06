@@ -11,7 +11,7 @@
 
 #night {
 	width: 400px;
-	display: inline-block;
+	display: block;
 }
 
 .day {
