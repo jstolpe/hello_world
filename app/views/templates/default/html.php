@@ -46,11 +46,85 @@
 		<!-- template specific js -->
 		<script src="<?php echo BASE_URL_ASSETS; ?>js/templates/default/script.js"></script>
 
+		<script>
+			document.addEventListener( 'DOMContentLoaded', function() { // document is ready
+				// initalize global template javascript
+				helloWorld.initialize();
+			} );
+		</script>
+
 		<!-- html page specific head html -->
 		<?php echo $html_head; ?>
 	</head>
 	<body>
+
+		<!-- fixed header -->
+		<div class="header-container">
+			<div class="header-container-inner">
+
+				<!-- header logo -->
+				<a href="<?php echo HREF_BASE_URL; ?>">
+					<div class="header-logo">
+						<img src="<?php echo BASE_URL_ASSETS; ?>images/logo50x50.png" />
+						Hello World
+					</div>
+				</a>
+
+				<!-- header user menu -->
+				<div class="header-user-menu-container">
+					
+					<!-- header menu bars icon -->
+					<span class="user-menu-bars fa-solid fa-bars">
+
+					</span>
+
+					<!-- users menu list -->
+					<div class="user-menu-container hide">
+						<div class="user-menu-container-inner">
+							<div class="user-menu">
+
+								<!-- users menu item -->
+								<a href="<?php echo HREF_BASE_URL; ?>">
+									<div class="user-menu-item">
+										<div class="user-menu-item-text">
+											Log In
+										</div>
+										<div class="user-menu-item-icon">
+											<span class="fa-solid fa-sign-in">
+
+											</span>
+										</div>
+									</div>
+								</a>
+
+								<!-- users menu item -->
+								<a href="<?php echo HREF_BASE_URL; ?>">
+									<div class="user-menu-item last">
+										<div class="user-menu-item-text">
+											Sign In
+										</div>
+										<div class="user-menu-item-icon">
+											<span class="fa-solid fa-user-plus">
+
+											</span>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- users menu overlay -->
+			<div class="user-menu-overlay">
+
+			</div>
+		</div>
+
 		<!-- html page specific body html -->
-		<?php echo $html_body; ?>
+		<div class="body-container">
+			<?php echo $html_body; ?>
+		</div>
 	</body>
 </html>
