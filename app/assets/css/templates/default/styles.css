@@ -33,12 +33,19 @@ body {
   	-o-background-size: cover;
   	color: #dad8de;
   	font-family: 'SpaceGrotesk-Regular';
+  	padding: 0;
+  	margin: 0;
 }
 
 h1 {
 	margin: 0px;
 	font-size: 28px;
 	font-family: 'SpaceGrotesk-Bold';
+}
+
+.body-container {
+	padding: 20px;
+	padding-top: 85px;
 }
 
 .section-container {
@@ -73,8 +80,123 @@ h1 {
 	cursor: pointer;
 }
 
+.header-container {
+	position: fixed;
+	width: 100%;
+	background: rgba( 18, 18, 18, 0.8 );
+	box-shadow: 0 0px 1px rgba( 255, 255, 255, .3 ), 0 0px 10px rgba( 255, 255, 255, .3 );
+}
+
+.header-container-inner {
+	padding: 10px;
+	user-select: none;
+}
+
+.header-logo {
+	font-family: 'SpaceGrotesk-Bold';
+	color: #dad8de;
+	display: inline-block;
+	font-size: 24px;
+}
+
+.header-logo img {
+	display: block;
+	float: left;
+	margin-right: 10px;
+	height: 32px;
+}
+
+.header-user-menu-container {
+	float: right;
+}
+
+.user-menu-bars {
+	z-index: 2;
+	position: relative;
+	cursor: pointer;
+	color: #dad8de;
+	font-size: 30px;
+}
+
+.user-menu-overlay {
+	display: none;
+	background: rgba( 18, 18, 18, 0.8 );
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	z-index: 1;
+}
+
+.user-menu-container {
+	position: relative;
+	z-index: 2;
+	margin-top: 5px;
+}
+
+.user-menu-container.hide {
+	display: none;
+}
+
+.user-menu-container-inner {
+	position: absolute;
+	background: rgba( 39, 39, 39, 0.8 );
+	right: 0;
+	width: 200px;
+}
+
+.user-menu {
+	font-size: 16px;
+	box-shadow: 0 0px 1px rgba( 255, 255, 255, .3 ), 0 0px 10px rgba( 255, 255, 255, .3 );
+}
+
+.user-menu-item {
+	color: #dad8de;
+	cursor: pointer;
+	border-bottom: 1px solid #3b3b3b;
+	padding: 10px;
+}
+
+.user-menu-item:hover {
+	background: #7d7d7d;
+}
+
+.user-menu-item.last {
+	border-bottom: 0px;
+}
+
+.user-menu-item-text {
+	font-weight: bold;
+	display: inline-block;
+}
+
+.user-menu-item-icon {
+	float: right;
+}
+
 @media only screen and ( max-width: 1200px ) { /* mobile: do things when size is 1200px or less */
 	h1 {
 		font-size: 24px;
+	}
+
+	.body-container {
+		padding: 10px;
+		padding-top: 55px;
+	}
+
+	.header-logo {
+		font-size: 18px;
+	}
+
+	.header-logo img {
+		height: 24px;
+	}
+
+	.user-menu-bars {
+		font-size: 24px;
+	}
+
+	.user-menu-container-inner {
+		background: rgba( 39, 39, 39, 1 );
 	}
 }
