@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-2Y6WPWS7HV"></script>
+		<script>
+			// GA CODE
+		  	window.dataLayer = window.dataLayer || [];
+		  	function gtag(){dataLayer.push(arguments);}
+		  	gtag('js', new Date());
+		  	gtag('config', 'G-2Y6WPWS7HV');
+		</script>
+
+		<!-- site ga js -->
+		<script src="<?php echo BASE_URL_ASSETS; ?>js/ga/script.js"></script>
+
+
 		<!-- html title -->
 		<title>
 			<?php echo $html_title; ?>
@@ -50,6 +64,9 @@
 			document.addEventListener( 'DOMContentLoaded', function() { // document is ready
 				// initalize global template javascript
 				helloWorld.initialize();
+
+				// initialize ga object
+				gaHelper.initialize();
 			} );
 		</script>
 
@@ -63,7 +80,7 @@
 			<div class="header-container-inner">
 
 				<!-- header logo -->
-				<a href="<?php echo HREF_BASE_URL; ?>">
+				<a href="<?php echo HREF_BASE_URL; ?>" class="ga-href" data-ga-name="href_header_logo" data-ga-label="header">
 					<div class="header-logo">
 						<img src="<?php echo BASE_URL_ASSETS; ?>images/logo50x50.png" />
 						Hello World
@@ -74,7 +91,7 @@
 				<div class="header-user-menu-container">
 					
 					<!-- header menu bars icon -->
-					<span class="user-menu-bars fa-solid fa-bars">
+					<span class="user-menu-bars fa-solid fa-bars ga-icon" data-ga-name="icon_header_user_menu" data-ga-label="header">
 
 					</span>
 
@@ -84,7 +101,7 @@
 							<div class="user-menu">
 
 								<!-- users menu item -->
-								<a href="<?php echo HREF_BASE_URL; ?>">
+								<a href="<?php echo HREF_BASE_URL; ?>" class="ga-href" data-ga-name="href_user_menu_log_in" data-ga-label="log_in">
 									<div class="user-menu-item">
 										<div class="user-menu-item-text">
 											Log In
@@ -98,10 +115,10 @@
 								</a>
 
 								<!-- users menu item -->
-								<a href="<?php echo HREF_BASE_URL; ?>">
+								<a href="<?php echo HREF_BASE_URL; ?>" class="ga-href" data-ga-name="href_user_menu_sign_up" data-ga-label="sign_up">
 									<div class="user-menu-item last">
 										<div class="user-menu-item-text">
-											Sign In
+											Sign Up
 										</div>
 										<div class="user-menu-item-icon">
 											<span class="fa-solid fa-user-plus">

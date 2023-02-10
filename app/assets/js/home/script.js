@@ -5,6 +5,9 @@ document.addEventListener( 'DOMContentLoaded', function() { // document is ready
 		
 		// hide the earth_night image
 		document.getElementById( 'night' ).style.display = 'none';
+
+		// send ga event of button click
+		gaHelper.buttonClick( 'btn_hw_earth', 'earth', 1 );
 	} );
 
 	document.getElementById( 'hello_world' ).addEventListener( 'pointerup', function() { // pointer up for hello button
