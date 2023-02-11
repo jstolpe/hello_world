@@ -57,6 +57,52 @@ h1 {
 	box-shadow: 0 0px 1px rgba( 255, 255, 255, .3 ), 0 0px 10px rgba( 255, 255, 255, .3 );
 }
 
+.section-title {
+	text-align: center;
+}
+
+.section-row {
+	margin-top: 15px;
+}
+
+.section-or {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	text-align: center;
+	color: #666666;
+	font-size: 12px;
+	user-select: none;
+}
+
+.input-default {
+	outline: none;
+	border: 1px solid #3b3b3b;
+	border-radius: 5px;
+	width: 100%;
+	padding: 10px;
+	font-size: 16px;
+	box-sizing: border-box;
+	font-family: 'SpaceGrotesk-Bold';
+	color: #ffffff;
+	background: #1f1f1f;
+}
+
+.input-default:hover {
+	background: #363636;
+}
+
+.input-default:focus {
+	background: #363636;
+	box-shadow: 0 0px 1px rgba( 255, 255, 255, .3 ), 0 0px 10px rgba( 255, 255, 255, .3 );
+}
+
+.input-error-message {
+	display: none;
+	color: #d5462d;
+	margin-top: 5px;
+	font-size: 12px;
+}
+
 .default-button {
 	font-size: 16px;
 	padding: 12px;

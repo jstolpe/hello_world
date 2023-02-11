@@ -115,7 +115,7 @@
 								</a>
 
 								<!-- users menu item -->
-								<a href="<?php echo HREF_BASE_URL; ?>" class="ga-href" data-ga-name="href_user_menu_sign_up" data-ga-label="sign_up">
+								<a href="<?php echo HREF_BASE_URL; ?>signup" class="ga-href" data-ga-name="href_user_menu_sign_up" data-ga-label="sign_up">
 									<div class="user-menu-item last">
 										<div class="user-menu-item-text">
 											Sign Up
