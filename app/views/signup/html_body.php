@@ -8,39 +8,39 @@
 
 	<!-- form rows -->
 	<div class="section-row">
-		<input type="text" placeholder="email" class="input-default" />
-		<div class="input-error-message">
-			Email invalid or already registered.
+		<input type="text" placeholder="email" class="input-default signup-fh" data-column="email" data-check="email" data-message="Email invalid or already registered." />
+		<div class="input-error-message signup-fhe">
+			
 		</div>
 	</div>
 	<div class="section-row">
-		<input type="text" placeholder="username" class="input-default" />
-		<div class="input-error-message">
-			Username invalid or taken. Min length 4. Alphanumeric only.
+		<input type="text" placeholder="username" class="input-default signup-fh" data-column="username" data-check="username" data-message="Username invalid or taken. Min length 4. Alphanumeric only." />
+		<div class="input-error-message signup-fhe">
+			
 		</div>
 	</div>
 	<div class="section-row">
-		<input type="text" placeholder="first name" class="input-default" />
-		<div class="input-error-message">
-			Invalid name.
+		<input type="text" placeholder="first name" class="input-default signup-fh" data-column="first_name" data-check="name" data-message="Invalid name." />
+		<div class="input-error-message signup-fhe">
+			
 		</div>
 	</div>
 	<div class="section-row">
-		<input type="text" placeholder="last name" class="input-default" />
-		<div class="input-error-message">
-			Invalid name.
+		<input type="text" placeholder="last name" class="input-default signup-fh" data-column="last_name" data-check="name" data-message="Invalid name." />
+		<div class="input-error-message signup-fhe">
+			
 		</div>
 	</div>
 	<div class="section-row">
-		<input type="password" placeholder="password" class="input-default" />
-		<div class="input-error-message">
-			Passwords don't match and or are not 8 characters long.
+		<input type="password" placeholder="password" class="input-default signup-fh" data-column="password" data-check="password" data-message="Passwords don't match and or are not 8 characters long." />
+		<div class="input-error-message signup-fhe">
+			
 		</div>
 	</div>
 	<div class="section-row">
-		<input type="password" placeholder="confirm password" class="input-default" />
-		<div class="input-error-message">
-			Passwords don't match and or are not 8 characters long.
+		<input type="password" placeholder="confirm password" class="input-default signup-fh" data-column="confirm_password" data-check="confirm_password" data-message="Passwords don't match and or are not 8 characters long." data-matches="password" />
+		<div class="input-error-message signup-fhe">
+			
 		</div>
 	</div>
 
