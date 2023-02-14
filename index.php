@@ -16,15 +16,7 @@
 	require_once 'core/Autoloader.php';
 
 	$autoloaderParmas = array( // autoloader parmas
-		'database' => array( // database info
-			'load' => USE_DATABASE, // should we load the database
-			'creds' => array( // database creds
-				'hostname' => '',
-				'username' => '',
-				'password' => '',
-				'database' => ''
-			)
-		),
+		'database' => $database,
 		'session' => array( // use session helper and save in database
 			'load' => USE_SESSION, // load session
 			'sess_name' => 'iarecoding', // name of the session
