@@ -15,6 +15,41 @@ var helloWorld = {
 	},
 
 	/**
+     * Make ajax call.
+     *
+     * @param object params
+     * @return void
+     */
+	ajax : function( params ) {
+		// create new xml http request object
+        var request = new XMLHttpRequest(); 
+
+        // initialize params
+        var sendParams = '';
+
+        for ( const property in params.data ) { // loop over params
+            // add params to be sent
+            sendParams += property + '=' + encodeURIComponent( params.data[property] ) + '&';
+        }
+
+        // open request
+        request.open( params.type, params.url, true );
+
+        // set headers
+        request.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
+
+        request.onreadystatechange = function () { // set response listener
+            if ( request.readyState === 4 && request.status === 200 ) { // 4 means done and 200 is good status
+                // success send json payload
+                params.success( JSON.parse( request.responseText ) );
+            }
+        };
+
+        // send the request
+        request.send( sendParams );
+	},
+
+	/**
      * Setup the users menu.
      *
      * @return void
