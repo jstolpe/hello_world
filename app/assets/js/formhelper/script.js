@@ -52,31 +52,48 @@ var formHelper = ( function() {
 		}
 	}
 
+	formHelper.prototype.getPostData = function() {
+		var self = this;
+
+		return JSON.stringify( self );
+	}
+
+	formHelper.prototype.validateResponseData = function( data ) {
+		var self = this;
+
+		self.formIsValid = data.formData.formIsValid;
+
+		self.formElements = data.formData.formElements;
+
+		return self.validate( 'server' );
+	}
+
 	/**
      * Validate form inputs.
      *
      * @param string from either validating from the front end or the server
      * @return boolean
      */
-	formHelper.prototype.validate = function() {
+	formHelper.prototype.validate = function( from ) {
 		// get self
 		var self = this;
 
 		// assume true if only frontend check
-		self.formIsValid = true;
+		self.formIsValid = 'frontend' == from ? true : self.formIsValid;
 
 		for ( const key in self.formElements ) { // loop over form elements
 			// get element by unique class name
 			var domElement = document.getElementsByClassName( self.formElements[key].className )[0];
 
 			// get form value from front end
-			self.formElements[key].value = domElement.value;
+			self.formElements[key].value = 'frontend' == from ? domElement.value : self.formElements[key].value;
 
 			// get form is valid from front
-			self.formElements[key].isValid = self.validateInput( self.formElements[key] );
+			self.formElements[key].isValid = 'frontend' == from ? self.validateInput( self.formElements[key] ) : self.formElements[key].isValid;
 			
 			// get form value from front end
-			self.formElements[key].message = domElement.getAttribute( 'data-message' );
+			self.formElements[key].message = 'frontend' == from ? domElement.getAttribute( 'data-message' ) : self.formElements[key].message;
+			self.formElements[key].message = self.formElements[key].isValid ? '' : self.formElements[key].message;
 			
 			// update ui for form element
 			self.updateUiFormElement( self.formElements[key] );

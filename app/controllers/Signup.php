@@ -33,4 +33,23 @@
 			// load view
 			$this->loadView( 'templates/default/html', $data );
 		}
+
+		/**
+		 * Sign a user up.
+		 *
+		 * @return void
+		 */
+		public function user() {
+			// get form data from post
+			$formData = json_decode( $_POST['formData'], true );
+
+			// sign user up
+			$formData = $this->SignUpModel->user( $formData );
+
+			echo json_encode( // json encode for response
+				array( // send form data
+					'formData' => $formData
+				) 
+			);
+		}
 	}
