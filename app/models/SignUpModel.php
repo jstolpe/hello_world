@@ -22,7 +22,24 @@
 			$this->validateSignUpForm( $formData );
 
 			if ( $formData['formIsValid'] ) { // all good
-				
+				$newUserData = array( // new user info
+					'email' => $formData['formElements']['email']['value'],
+					'username' => $formData['formElements']['username']['value'],
+					'first_name' => $formData['formElements']['first_name']['value'],
+					'last_name' => $formData['formElements']['username']['value'],
+					'password' => $formData['formElements']['password']['value']
+				);
+
+				// insert the user with the form data
+				$newUserId = $this->UsersModel->insertUser( $newUserData );
+
+				// get new user
+				$newUser = $this->UsersModel->getUserWithColumnValue( UsersModel::COLUMN_NAME_ID, $newUserId );
+
+				// display new user from db
+				echo '<pre>';
+				print_r( $newUser );
+				die();
 			}
 
 			// return form data
