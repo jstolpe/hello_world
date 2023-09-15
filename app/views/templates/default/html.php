@@ -58,12 +58,23 @@
 		<link href="<?php echo BASE_URL_ASSETS; ?>css/templates/default/styles.css" rel="stylesheet" type="text/css" />
 		
 		<!-- template specific js -->
+		<script src="<?php echo BASE_URL_ASSETS; ?>js/loader/script.js"></script>
 		<script src="<?php echo BASE_URL_ASSETS; ?>js/templates/default/script.js"></script>
 
 		<script>
+			var helloWorldLoader;
+
 			document.addEventListener( 'DOMContentLoaded', function() { // document is ready
 				// initalize global template javascript
-				helloWorld.initialize();
+				helloWorld.initialize( {
+					baseUrl: '<?php echo HREF_BASE_URL; ?>',
+					assetsImagesUrl: '<?php echo BASE_URL_ASSETS_IMAGES; ?>'
+				} );
+
+				helloWorldLoader = new loaderHelper( {
+					loaderClassPrefix: 'helloworld',
+					loaderHtml: '<img src="' + helloWorld.assetsImagesUrl + 'logo50x50.png" />'
+				} );
 
 				// initialize ga object
 				gaHelper.initialize();

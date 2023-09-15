@@ -17,6 +17,9 @@ document.addEventListener( 'DOMContentLoaded', function() { // document is ready
  */
 function serverSignUp( signUpForm ) {
 	if ( signUpForm.validate( 'frontend' ) ) { // valid front end form
+		// show loader
+		helloWorldLoader.show();
+
 		helloWorld.ajax( { // make call to server endpoint
 			type: 'POST',
 			url: 'http://localhost/hello_world/signup/user',
@@ -28,7 +31,8 @@ function serverSignUp( signUpForm ) {
 				if ( signUpForm.validateResponseData( data ) ) { // valid form data
 					alert('valid');
 				} else {
-					alert('not valid');
+					// hide the loader
+					helloWorldLoader.hide();
 				}
 			}
 		} );

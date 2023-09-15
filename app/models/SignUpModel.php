@@ -26,7 +26,7 @@
 					'email' => $formData['formElements']['email']['value'],
 					'username' => $formData['formElements']['username']['value'],
 					'first_name' => $formData['formElements']['first_name']['value'],
-					'last_name' => $formData['formElements']['username']['value'],
+					'last_name' => $formData['formElements']['last_name']['value'],
 					'password' => $formData['formElements']['password']['value']
 				);
 
