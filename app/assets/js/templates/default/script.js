@@ -5,11 +5,34 @@
  */
 var helloWorld = {
 	/**
+     * Base url for the site.
+     *
+     * @var string
+     */
+    baseUrl : '',
+
+    /**
+     * Url to the assets/images folder.
+     *
+     * @var string
+     */
+    assetsImagesUrl : '',
+
+	/**
      * Initialize global javascript functionality.
      *
+     * @param object params
+     *     str baseUrl base url for the website
+     *     str assetsImagesUrl base url for the assets
      * @return void
      */
-	initialize : function() {
+	initialize : function( params ) {
+		// save baseUrl to object
+        this.baseUrl = params.baseUrl;
+
+        // save path to assets/images
+        this.assetsImagesUrl = params.assetsImagesUrl;
+
 		// setup javascript for users menu
 		this.setupUserMenu();
 	},
