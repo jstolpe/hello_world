@@ -54,7 +54,7 @@
 		- OR -
 	</div>
 	<div class="section-row">
-		<a href="<?php echo HREF_BASE_URL; ?>" class="ga-href" data-ga-name="href_log_in_sign_up" data-ga-label="log_in">
+		<a href="<?php echo HREF_BASE_URL; ?>login" class="ga-href" data-ga-name="href_log_in_sign_up" data-ga-label="log_in">
 			<div class="default-button space-blue">
 				Log In
 			</div>
