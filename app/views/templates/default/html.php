@@ -112,7 +112,7 @@
 							<div class="user-menu">
 
 								<!-- users menu item -->
-								<a href="<?php echo HREF_BASE_URL; ?>" class="ga-href" data-ga-name="href_user_menu_log_in" data-ga-label="log_in">
+								<a href="<?php echo HREF_BASE_URL; ?>login" class="ga-href" data-ga-name="href_user_menu_log_in" data-ga-label="log_in">
 									<div class="user-menu-item">
 										<div class="user-menu-item-text">
 											Log In
