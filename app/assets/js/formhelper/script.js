@@ -141,9 +141,9 @@ var formHelper = ( function() {
 		if ( domElementMessage && !formElement.isValid ) { // we have an error message dom element
 			// add message to dom element
 			domElementMessage.innerHTML = formElement.message;
+			
+			domElementMessage.style.display = formElement.isValid ? 'none' : 'block';
 		}
-
-		domElementMessage.style.display = formElement.isValid ? 'none' : 'block';
 	}
 
 	/**

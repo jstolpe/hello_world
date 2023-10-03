@@ -8,10 +8,10 @@
 
 	<!-- form rows -->
 	<div class="section-row">
-		<input type="text" placeholder="email" class="input-default" />
+		<input type="text" placeholder="email" class="input-default login-fh" data-column="email" data-check="email" />
 	</div>
 	<div class="section-row">
-		<input type="password" placeholder="password" class="input-default" />
+		<input type="password" placeholder="password" class="input-default login-fh" data-column="password" data-check="password" />
 	</div>
 
 	<!-- form actions -->
