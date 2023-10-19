@@ -22,7 +22,7 @@ function serverSignUp( signUpForm ) {
 
 		helloWorld.ajax( { // make call to server endpoint
 			type: 'POST',
-			url: 'http://localhost/hello_world/signup/user',
+			url: helloWorld.baseUrl + 'signup/user',
 			data: {
 				formData: signUpForm.getPostData(),
 				hello: 'world'
@@ -30,6 +30,9 @@ function serverSignUp( signUpForm ) {
 			success : function( data ) { // we have a response
 				if ( signUpForm.validateResponseData( data ) ) { // valid form data
 					alert('valid');
+
+					// hide the loader
+					helloWorldLoader.hide();
 				} else {
 					// hide the loader
 					helloWorldLoader.hide();

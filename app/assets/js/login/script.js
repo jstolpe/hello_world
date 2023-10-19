@@ -17,6 +17,27 @@ document.addEventListener( 'DOMContentLoaded', function() { // document is ready
  */
 function serverLogIn( logInForm ) {
 	if ( logInForm.validate( 'frontend' ) ) { // valid front end form
-		// server side validation
+		// show loader
+		helloWorldLoader.show();
+
+		helloWorld.ajax( { // make call to server endpoint
+			type: 'POST',
+			url: helloWorld.baseUrl + 'login/user',
+			data: {
+				formData: logInForm.getPostData(),
+				hello: 'world'
+			},
+			success : function( data ) { // we have a response
+				if ( logInForm.validateResponseData( data ) ) { // valid form data
+					alert('valid');
+
+					// hide the loader
+					helloWorldLoader.hide();
+				} else {
+					// hide the loader
+					helloWorldLoader.hide();
+				}
+			}
+		} );
 	}
 }
