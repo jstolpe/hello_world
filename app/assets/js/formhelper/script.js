@@ -52,19 +52,35 @@ var formHelper = ( function() {
 		}
 	}
 
+	/**
+     * Get the entire form helper.
+     *
+     * @return string
+     */
 	formHelper.prototype.getPostData = function() {
+		// get self
 		var self = this;
 
+		// return json for post
 		return JSON.stringify( self );
 	}
 
+	/**
+     * Update the form helper with server data.
+     *
+     * @return string
+     */
 	formHelper.prototype.validateResponseData = function( data ) {
+		// get self
 		var self = this;
 
+		// set form is valid from repsonse data
 		self.formIsValid = data.formData.formIsValid;
 
+		// set form elements from response data
 		self.formElements = data.formData.formElements;
 
+		// validate data from server
 		return self.validate( 'server' );
 	}
 
