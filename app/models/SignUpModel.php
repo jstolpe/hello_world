@@ -36,10 +36,11 @@
 				// get new user
 				$newUser = $this->UsersModel->getUserWithColumnValue( UsersModel::COLUMN_NAME_ID, $newUserId );
 
-				// display new user from db
-				echo '<pre>';
-				print_r( $newUser );
-				die();
+				// save user id for the session
+				$this->session->setSessUserId( $newUserId );
+				
+				// get the new users info and save it to the session
+				$this->session->setData( 'user_info', $newUser );
 			}
 
 			// return form data

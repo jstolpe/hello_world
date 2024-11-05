@@ -17,13 +17,7 @@
 
 	$autoloaderParmas = array( // autoloader parmas
 		'database' => $database,
-		'session' => array( // use session helper and save in database
-			'load' => USE_SESSION, // load session
-			'sess_name' => 'iarecoding', // name of the session
-			'sess_id_time_to_regen' => 300, // number of seconds before a new session id should be regenerated
-			'secs_till_expire' => 86400 * 60, // number of seconds user needs to be inactive expiration
-			'database_table_name' => 'sessions' // table name in the database
-		)
+		'session' => $session
 	);
 
 	// run the autoloader so our files get loaded

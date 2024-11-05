@@ -109,5 +109,16 @@
 			// return results
 			return $this->database->runInsertQuery( $insertData );	
 		}
+
+		/**
+		 * Is logged in.
+		 *
+		 * Determine if a user is logged in by checking things.
+		 * @return boolean
+		 */
+		public function isLoggedIn() {
+			// get user id from session
+			return $this->session->getData( 'user_id' );
+		}
 	}
 ?>

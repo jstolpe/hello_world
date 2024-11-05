@@ -29,10 +29,8 @@ function serverSignUp( signUpForm ) {
 			},
 			success : function( data ) { // we have a response
 				if ( signUpForm.validateResponseData( data ) ) { // valid form data
-					alert('valid');
-
-					// hide the loader
-					helloWorldLoader.hide();
+					// redirect user
+					window.location.href = helloWorld.baseUrl;
 				} else {
 					// hide the loader
 					helloWorldLoader.hide();

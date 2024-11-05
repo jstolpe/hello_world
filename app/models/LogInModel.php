@@ -19,10 +19,14 @@
 		 */
 		public function user( $formData ) {
 			// validate the form
-			$this->validateLogInForm( $formData );
+			$validate = $this->validateLogInForm( $formData );
 
 			if ( $formData['formIsValid'] ) { // all good
+				// save user id for the session
+				$this->session->setSessUserId( $validate['user_info']['id'] );
 				
+				// get the new users info and save it to the session
+				$this->session->setData( 'user_info', $validate['user_info'] );
 			}
 
 			// return form data

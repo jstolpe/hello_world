@@ -110,34 +110,63 @@
 					<div class="user-menu-container hide">
 						<div class="user-menu-container-inner">
 							<div class="user-menu">
+								<?php if ( $this->UsersModel->isLoggedIn() ) : ?>
+									<!-- users menu item -->
+									<a href="<?php echo HREF_BASE_URL; ?>settings" class="ga-href" data-ga-name="href_user_menu_settings" data-ga-label="settings">
+										<div class="user-menu-item">
+											<div class="user-menu-item-text">
+												Settings
+											</div>
+											<div class="user-menu-item-icon">
+												<span class="fa-solid fa-gear">
 
-								<!-- users menu item -->
-								<a href="<?php echo HREF_BASE_URL; ?>login" class="ga-href" data-ga-name="href_user_menu_log_in" data-ga-label="log_in">
-									<div class="user-menu-item">
-										<div class="user-menu-item-text">
-											Log In
+												</span>
+											</div>
 										</div>
-										<div class="user-menu-item-icon">
-											<span class="fa-solid fa-sign-in">
+									</a>
 
-											</span>
-										</div>
-									</div>
-								</a>
+									<!-- users menu item -->
+									<a href="<?php echo HREF_BASE_URL; ?>logout" class="ga-href" data-ga-name="href_user_menu_log_out" data-ga-label="log_out">
+										<div class="user-menu-item">
+											<div class="user-menu-item-text">
+												Log Out
+											</div>
+											<div class="user-menu-item-icon">
+												<span class="fa-solid fa-sign-out-alt">
 
-								<!-- users menu item -->
-								<a href="<?php echo HREF_BASE_URL; ?>signup" class="ga-href" data-ga-name="href_user_menu_sign_up" data-ga-label="sign_up">
-									<div class="user-menu-item last">
-										<div class="user-menu-item-text">
-											Sign Up
+												</span>
+											</div>
 										</div>
-										<div class="user-menu-item-icon">
-											<span class="fa-solid fa-user-plus">
+									</a>
+								<?php else : ?>
+									<!-- users menu item -->
+									<a href="<?php echo HREF_BASE_URL; ?>login" class="ga-href" data-ga-name="href_user_menu_log_in" data-ga-label="log_in">
+										<div class="user-menu-item">
+											<div class="user-menu-item-text">
+												Log In
+											</div>
+											<div class="user-menu-item-icon">
+												<span class="fa-solid fa-sign-in">
 
-											</span>
+												</span>
+											</div>
 										</div>
-									</div>
-								</a>
+									</a>
+
+									<!-- users menu item -->
+									<a href="<?php echo HREF_BASE_URL; ?>signup" class="ga-href" data-ga-name="href_user_menu_sign_up" data-ga-label="sign_up">
+										<div class="user-menu-item last">
+											<div class="user-menu-item-text">
+												Sign Up
+											</div>
+											<div class="user-menu-item-icon">
+												<span class="fa-solid fa-user-plus">
+
+												</span>
+											</div>
+										</div>
+									</a>
+								<?php endif; ?>
 							</div>
 						</div>
 					</div>

@@ -108,9 +108,6 @@
 			// set database table name
 			$this->_databaseTableName = isset( $params['database_table_name'] ) ? $params['database_table_name'] : $this->_databaseTableName;
 
-			// set session name
-			ini_set( 'session.name', $this->_sessName );
-			
 			session_set_cookie_params( // set session params
 				$this->_secsTillExpire, // lifetime of session in seconds
 				'/', // path
@@ -118,9 +115,6 @@
 				FALSE, // will only set if https
 				TRUE // if set to true then php will attempt to send the httponly flag when setting the session cookie
 			);
-
-			//set session max lifetime
-			ini_set( 'session.gc_maxlifetime', $this->_secsTillExpire );
 
 			//  don't allow session id to be passed in the url
 			ini_set( 'session.use_trans_sid', 0 );
@@ -143,8 +137,18 @@
 			// set session id
 			$this->setSessId();
 
+			setcookie( // set cookie
+				$this->_sessName, // name
+				$this->_regeneratedSessId, // id
+				time() + $this->_secsTillExpire, // date as a timestamp when cookie expires
+				'/', // path
+				'', // domain
+				FALSE, // will only set if https
+				TRUE // accessible only with http protocal
+			);
+
 			// initialize database
-			$this->initializeSessFromDb();
+			$this->initializeSessFromDb(); 
 		}
 
 		/**
@@ -342,29 +346,17 @@
 		 */
 		public function setSessId() {
 			// save session id
-			$this->_initialSessId = isset( $_COOKIE[$this->_sessName] ) ? $_COOKIE[$this->_sessName] : $this->_initialSessId;
+			$this->_initialSessId = session_id();
 
-			if ( ( empty( $_SERVER['HTTP_X_REQUESTED_WITH'] ) OR strtolower( $_SERVER['HTTP_X_REQUESTED_WITH'] ) !== 'xmlhttprequest' ) ) { // regen when not ajax
-				if ( !isset( $_SESSION[$this->_sessLastRegenKey] ) ) { // no regenerated timestamp in the session
-					// set session last regen time
-					$_SESSION[$this->_sessLastRegenKey] = time();
-				} elseif ( $_SESSION[$this->_sessLastRegenKey] < ( time() - $this->_sessIdTimeToRegen ) ) { // need to regenerate session id
-					// set session last regen time
-					$_SESSION[$this->_sessLastRegenKey] = time();
+			if ( !isset( $_SESSION[$this->_sessLastRegenKey] ) ) { // no regenerated timestamp in the session
+				// set session last regen time
+				$_SESSION[$this->_sessLastRegenKey] = time();
+			} elseif ( $_SESSION[$this->_sessLastRegenKey] < ( time() - $this->_sessIdTimeToRegen ) ) { // need to regenerate session id
+				// set session last regen time
+				$_SESSION[$this->_sessLastRegenKey] = time();
 
-					// regenerate session id
-					session_regenerate_id( FALSE );
-				}
-			} elseif ( isset( $_COOKIE[$this->_sessName] ) && $_COOKIE[$this->_sessName] === $this->_initialSessId ) {
-				setcookie( // set cookie
-					$this->_sessName, // name
-					$this->_initialSessId, // id
-					time() + $this->_secsTillExpire, // date as a timestamp when cookie expires
-					'/', // path
-					'', // domain
-					FALSE, // will only set if https
-					TRUE // accessible only with http protocal
-				);
+				// regenerate session id
+				session_regenerate_id( TRUE );
 			}
 
 			// store regenerated session id
