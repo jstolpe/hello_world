@@ -120,5 +120,50 @@
 			// get user id from session
 			return $this->session->getData( 'user_id' );
 		}
+
+		/**
+		 * Log user out.
+		 *
+		 * @return void
+		 */
+		public function logUserOut() {
+			// save user id for the session
+			$this->session->setSessUserId( 0 );
+				
+			// unset the user info
+			$this->session->unsetData( 'user_info' );
+
+			// redirect
+			header( 'Location: ' . HREF_BASE_URL . '/login' );
+		}
+
+		/**
+		 * Update a new user into the database.
+		 *
+		 * @param string $userId
+		 * @param array $info
+		 * @return void
+		 */
+		public function updateUser( $userId, $info ) {
+			$updateData = array( // data to update with the array keys being the column names
+				'email' => trim( $info['email'] ),
+				'username' => trim( $info['username'] ),
+				'first_name' => trim( $info['first_name'] ),
+				'last_name' => trim( $info['last_name'] )
+			);
+
+			if ( isset( $info['password'] ) ) { // add on password
+				$updateData['password'] = password_hash( $info['password'], PASSWORD_DEFAULT );
+			}	
+
+			// specify database table
+			$this->database->table( self::TABLE_NAME );
+
+			// set where
+			$this->database->where( self::COLUMN_NAME_ID, $userId );
+
+			// return results
+			$this->database->runUpdateQuery( $updateData );
+		}
 	}
 ?>

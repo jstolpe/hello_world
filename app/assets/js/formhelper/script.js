@@ -68,6 +68,7 @@ var formHelper = ( function() {
 	/**
      * Update the form helper with server data.
      *
+     * @param object data
      * @return string
      */
 	formHelper.prototype.validateResponseData = function( data ) {
@@ -83,6 +84,24 @@ var formHelper = ( function() {
 		// validate data from server
 		return self.validate( 'server' );
 	}
+
+	/**
+     * Set form element check type.
+     *
+     * @param string columnName
+     * @param string checkName
+     * @return string
+     */
+	formHelper.prototype.setFormElementCheck = function( columnName, checkName ) {
+        // get self
+        var self = this;
+
+        // update elements object
+        self.formElements[columnName].check = checkName;
+
+        // add attribute to dom
+        document.getElementsByClassName( self.formElements[columnName].className )[0].setAttribute( 'data-check', checkName );
+    }
 
 	/**
      * Validate form inputs.
@@ -104,6 +123,10 @@ var formHelper = ( function() {
 			// get form value from front end
 			self.formElements[key].value = 'frontend' == from ? domElement.value : self.formElements[key].value;
 
+			if ( 'checkbox' == domElement.getAttribute( 'type' ) ) { // need to set value base on checked
+                self.formElements[key].value = 'frontend' == from ? domElement.checked : self.formElements[key].value;
+            }
+            
 			// get form is valid from front
 			self.formElements[key].isValid = 'frontend' == from ? self.validateInput( self.formElements[key] ) : self.formElements[key].isValid;
 			
@@ -154,7 +177,7 @@ var formHelper = ( function() {
 			domElement.classList.add( self.inputErrorClass );
 		}
 
-		if ( domElementMessage && !formElement.isValid ) { // we have an error message dom element
+		if ( domElementMessage ) { // we have an error message dom element
 			// add message to dom element
 			domElementMessage.innerHTML = formElement.message;
 			
